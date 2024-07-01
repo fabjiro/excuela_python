@@ -1,5 +1,6 @@
 from app.adapters.orm import UserModel
 from app.domain.models import User
+from app.extensions import db
 
 class UserRepository:
     def get_user_by_username(self, username):

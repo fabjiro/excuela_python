@@ -1,6 +1,6 @@
 from flask import Flask
 from .config import Config
-from .extensions import db, bcrypt, jwt
+from .extensions import db, bcrypt, jwt, migrate
 from .interfaces.api.routes import main
 
 def create_app():
@@ -10,6 +10,7 @@ def create_app():
     db.init_app(app)
     bcrypt.init_app(app)
     jwt.init_app(app)
+    migrate.init_app(app, db)
     
     app.register_blueprint(main)
     
